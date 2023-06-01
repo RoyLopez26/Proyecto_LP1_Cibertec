@@ -17,19 +17,26 @@
 <title>Registrar Responsable</title>
 </head>
 <body>
-
-<div class="container">
-    <header class="headerr">
+<header class="headerr">
        <div class="contenedor_tituloimagen">
           <div class="titutlo-cn-imagen">
             <h1 class="tit">Registrar un nuevo responsable</h1>
             <img class="imagen_responsable" alt="" src="./imagenes/imagenResponsable.png">
           </div>
        </div>
-    </header>
+</header>
+
+<div class="container">
 <br>
 <br>
-	<form action="registraResponsable" id="id_form"> 
+    <div class="contenedor-p">
+       <p class="par">Para registrar un nuevo <span class="spn1" onclick="mostrarMensaje()">responsable</span>, es necesario completar el formulario que se muestra en pantalla. Sin embargo, se recomienda revisar y verificar los datos registrados en el formulario antes de enviarlo, con el fin de evitar posibles errores y confusiones. Estos datos podrán ser modificados más adelante si es necesario.</p>
+    </div>
+    
+	<div class="contenedor_form_imagen">
+	   <form action="registraResponsable" id="id_form"> 
+	        <h2>Formulario de registro</h2>
+	
 			<input type="hidden" name="metodo" value="registra">	
 			<div class="form-group">
 				<label class="control-label" for="id_nombre">Nombres</label>
@@ -69,7 +76,7 @@
 			<div class="form-group">
 				<label class="control-label" for="id_pais"> País </label> <select
 					class="form-control" id="id_pais" name="pais">
-					<option value=" ">[Seleccione]</option>
+					<option value=" ">Seleccione...</option>
 				</select>
 			</div>
 			
@@ -80,35 +87,46 @@
 			
 			<div class="form-group">
 			    <label class="control-label" for="id_contraseña">Contraseña</label>
-			    <input class="form-control" type="text" id="id_contraseña" name="contraseña" placeholder="Ingrese su contraseña" maxlength="7">
+			    <input class="form-control" type="password" id="id_contraseña" name="contraseña" placeholder="Ingrese su contraseña" maxlength="7">
 			</div>
 			
 			<div class="form-group">
 				<label class="control-label" for="id_categoria"> Categoría </label> <select
 					class="form-control" id="id_categoria" name="categoria">
-					<option value=" ">[Seleccione]</option>
+					<option value=" ">Seleccione...</option>
 				</select>
 			</div>
 			
 			<div class="form-group">
 				<label class="control-label" for="id_estado"> Estado </label> <select
 					class="form-control" id="id_estado" name="estado">
-					<option value=" ">[Seleccione]</option>
+					<option value=" ">Seleccione...</option>
 				</select>
 			</div>
 			
 			<br>
-			<div class="form-group">
+			<div class="form-groupButtons">
 				<button type="button" class="btn btn-success" id="id_btn_registra">Registrar Responsable</button>
-				<button type="button" class="btn btn-success" id="id_btn_limpiar">Limpiar formulario</button>
+				<button type="button" class="btn btn-danger" id="id_btn_limpiar">Limpiar formulario</button>
 			</div>
-	</form>
+	    </form>
+	    <div>
+	       <img class="imagenRegistroForm" alt="" src="./imagenes/llenadoFormulario.jpg">
+	    </div>
+	</div>
 </div>
 
 <script type="text/javascript">
 $("#success-alert").fadeTo(1000, 500).slideUp(500, function(){
     $("#success-alert").slideUp(500);
 });
+</script>
+
+<script>
+  function mostrarMensaje() {
+    var mensaje = "El término \"responsable\" se utiliza para referirse a la entidad encargada de interactuar con una categoría específica durante el proceso de obtención de las licencias de funcionamiento.\n\nLas categorías de responsables incluyen:\n\n1) Administrador\n2) Asesor de Plataforma\n3) Cajero\n4) Secretaria General\n5) Inspector Técnico\n6) Subgerente\n7) Técnico Administrativo\n8) Asesor Legal";
+    alert(mensaje);
+  }
 </script>
 
 <script type="text/javascript">
